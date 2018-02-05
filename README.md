@@ -1,4 +1,4 @@
-== Quick kiwi tutorial ==
+# Quick kiwi tutorial
 
 Welcome to the really quick guide on how to create images with kiwi. This will
 only teach you the basics, but will give you enough tooling so that the gaps are
@@ -8,32 +8,32 @@ Please adapt the URLs in the config.kiwi files in this directory with paths that
 point to either your SMT server or local copies of the respective SLES or module
 media.
 
-= Step 1 =
+### Step 1
 
 Go to an x86 SLES12 SP3 host. Install the full KVM stack. Then follow the
 README in the sles12_sp3_x86_jeos directory.
 
-= Step 2 =
+### Step 2
 
 Go to an aarch64 SLES12 SP3 host. Install the full KVM stack. Then follow the
 README in the sles12_sp3_aarch64_jeos directory.
 
-= Step 3 =
+### Step 3
 
 diff -ru both directories. What are the differences between building an image
 for x86_64 and aarch64?
 
-= Step 4 =
+### Step 4
 
 Now that you know how irrelevant architectures are, concentrate on one ;).
 Try to add a package to the image.
 
-= Step 5 =
+### Step 5
 
 Try to add a package that also needs to get started on bootup (apache2 maybe?).
 Then edit config.sh to automatically run the new service on boot.
 
-= Step 6 =
+### Step 6
 
 Create an account on build.opensuse.org. Then run
 
@@ -68,7 +68,7 @@ The web service should now build the package on both aarch64 and x86_64 for
 you. While it's doing that, either grab a coffee or jump ahead to the
 preparations for Step 8.
 
-= Step 7 =
+### Step 7
 
 We now want to build an image with our new package included. For that, add the
 download repository to your kiwi .xml repository list. To determine the link,
@@ -79,7 +79,7 @@ the build hasnt finished yet.
 Now build your image locally with the OBS built binary included. Boot it and try
 to run moon-buggy. Enjoy it for a few minutes.
 
-= Step 8 =
+### Step 8
 
 Let's move everything into OBS to leverage the full power of it.
 
