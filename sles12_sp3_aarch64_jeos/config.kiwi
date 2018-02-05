@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<image schemaversion="6.1" name="SLES12-SP3-template" displayname="SLES12_SP3">
+    <description type="system">
+        <author>Hans Mueller</author>
+        <contact>hans@mueller.com</contact>
+        <specification>SUSE Linux Enterprise 12 SP3</specification>
+    </description>
+    <preferences>
+        <version>0.0.1</version>
+        <packagemanager>zypper</packagemanager>
+        <locale>en_US</locale>
+        <keytable>us.map.gz</keytable>
+        <timezone>US/Central</timezone>
+        <hwclock>utc</hwclock>
+        <bootsplash-theme>SLE</bootsplash-theme>
+        <bootloader-theme>SLE</bootloader-theme>
+        <rpm-excludedocs>true</rpm-excludedocs>
+        <type
+            image="oem"
+            initrd_system="dracut"
+            filesystem="ext4"
+            bootloader="grub2"
+            firmware="efi"
+            kernelcmdline="systemd.show_status=0 plymouth.enable=0 console=ttyAMA0,115200"
+            bootpartition="false"
+            devicepersistency="by-uuid"
+        >
+            <oemconfig>
+               <oem-swap>false</oem-swap>
+               <oem-skip-verify>true</oem-skip-verify>
+            </oemconfig>
+        </type>
+    </preferences>
+    <users>
+        <user password="$1$wYJUgpM5$RXMMeASDc035eX.NbYWFl0" home="/root" name="root" groups="root"/>
+    </users>
+
+    <repository type="yast2" >
+        <source path="dir:///mounts/dist/install/SLP/SLE-12-SP3-Server-GM/x86_64/DVD1/"/>
+    </repository>
+    <repository type="rpm-md" >
+        <source path="http://euklid.suse.de/mirror/SuSE/build.suse.de/SUSE/Updates/SLE-Module-Public-Cloud/12/x86_64/update/"/>
+    </repository>
+    <repository type="rpm-md" >
+        <source path="http://euklid.suse.de/mirror/SuSE/build.suse.de/SUSE/Products/SLE-Module-Public-Cloud/12/x86_64/product/"/>
+    </repository>
+
+    <repository type="yast2" >
+        <source path="dir:///mounts/dist/install/SLP/SLE-12-SP3-Server-GM/aarch64/DVD1/"/>
+    </repository>
+    <repository type="rpm-md" >
+        <source path="http://euklid.suse.de/mirror/SuSE/build.suse.de/SUSE/Updates/SLE-Module-Public-Cloud/12/aarch64/update/"/>
+    </repository>
+    <repository type="rpm-md" >
+        <source path="http://euklid.suse.de/mirror/SuSE/build.suse.de/SUSE/Products/SLE-Module-Public-Cloud/12/aarch64/product/"/>
+    </repository>
+
+    <packages type="image">
+        <package name="patterns-sles-Minimal"/>
+        <package name="aaa_base-extras"/>
+        <package name="acl"/>
+        <package name="dracut"/>
+        <package name="kernel-default"/>
+        <package name="grub2-branding-SLE"/>
+        <package name="iputils"/>
+        <package name="zypper-lifecycle-plugin"/>
+        <package name="vim"/>
+        <package name="gettext-runtime"/>
+        <package name="shim" arch="x86_64"/>
+        <package name="grub2"/>
+        <package name="grub2-x86_64-efi" arch="x86_64"/>
+        <package name="grub2-arm64-efi" arch="aarch64"/>
+        <package name="fontconfig"/>
+        <package name="fonts-config"/>
+        <package name="haveged"/>
+        <package name="less" />
+        <package name="openslp"/>
+        <package name="tar"/>
+        <package name="parted"/>
+        <package name="SUSEConnect"/>
+        <package name="systemd"/>
+        <package name="systemd-sysvinit"/>
+        <package name="timezone"/>
+        <package name="wicked"/>
+        <package name="iproute2"/> 
+        <package name="openssh"/>
+        <package name="elfutils"/>
+        <package name="python-base"/>
+        <package name="rsync"/>
+        <!-- packages required by file provides, BS can't resolve them -->
+        <package name="suse-build-key"/>
+        <package name="pkg-config"/>
+        <package name="sg3_utils"/>
+        <package name="ncurses-utils"/>
+        <package name="krb5"/>
+    </packages>
+    <packages type="bootstrap">
+        <package name="udev"/>
+        <package name="filesystem"/>
+        <package name="glibc-locale"/>
+        <package name="ca-certificates"/>
+        <package name="sles-release"/>
+        <package name="cloud-init"/>
+        <archive name="cloud-cfg-swapfile.tgz"/>
+    </packages>
+    <packages type="delete">
+        <package name="mtools"/>
+        <package name="initviocons"/>
+        <package name="cryptsetup"/>
+        <package name="autoyast2-installation"/>
+        <package name="bind-utils"/>
+        <package name="Mesa" />
+        <package name="Mesa-libGL1"/>
+        <package name="Mesa-libglapi0"/>
+        <package name="Mesa-EGL1"/>
+        <package name="Mesa-libEGL1"/>
+        <package name="lvm2"/>
+        <package name="sg3_utils"/>
+        <package name="libcairo2"/>
+        <package name="libxcb-dri2-0"/>
+        <package name="libxcb-dri3-0"/>
+        <package name="libgbm1"/>
+        <package name="libgio-2_0-0"/>
+        <package name="libharfbuzz0"/>
+        <package name="libpango-1_0-0"/>
+        <package name="libpixman-1-0"/>
+        <package name="libply-splash-graphics2"/>
+        <package name="libX11-6"/>
+        <package name="libX11-xcb1"/>
+        <package name="libxcb-dri3"/>
+        <package name="libxcb-present0"/>
+        <package name="libxcb-shm0"/>
+        <package name="libxcb-xfixes0"/>
+        <package name="libdrm_intel1"/>
+        <package name="libdrm_nouveau2"/>
+        <package name="libLLVM"/>
+        <package name="libyui7"/>
+        <package name="libyui-ncurses-pkg7"/>
+        <package name="libyui-ncurses7"/>
+        <package name="libthai0"/>
+        <package name="libwayland-client0"/>
+        <package name="libsgutils2"/>
+        <package name="libpciaccess0"/>
+        <package name="libgraphite2"/>
+        <package name="libdatrie1"/>
+        <package name="libdrm2"/>
+        <package name="libxcb1"/>
+        <package name="libX11-data"/>
+        <package name="libXdamage1"/>
+        <package name="libXext6"/>
+        <package name="libXfixes3"/>
+        <package name="libXft2" />
+        <package name="libXrender1"/>
+        <package name="libXxf86vm1"/>
+        <package name="libpng16-16"/>
+        <package name="os-prober"/>
+        <package name="pango-modules"/>
+        <package name="plymouth"/>
+        <package name="plymouth-plugin-label"/>
+        <package name="plymouth-plugin-script"/>
+        <package name="plymouth-scripts"/>
+        <package name="plymouth-branding-SLE"/>
+        <package name="fontconfig"/>
+        <package name="fonts-config"/>
+        <package name="gnu-unifont-bitmap-fonts"/>
+        <package name="gio-branding-upstream"/>
+        <package name="libXau6"/>
+        <package name="libfreetype6"/>
+        <package name="shared-mime-info"/>
+    </packages>
+</image>
