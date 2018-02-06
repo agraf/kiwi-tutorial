@@ -27,8 +27,15 @@ directory.
 
 You will also need the following:
 
-  * x86_64 server with SLES12 SP3 and KVM installed
-  * aarch64 server with SLES12 SP3 and KVM installed
+  * SMT server with SLES12 SP3 (base and public cloud) repositories synchronized
+  * x86_64 server with
+    * SLES12 SP3 installed
+    * The KVM pattern installed
+    * Package "qemu-ovmf-x86_64" installed
+  * aarch64 server with
+    * SLES12 SP3 installed
+    * The KVM pattern installed
+    * Package "qemu-uefi-aarch64" installed
 
 ### First step on x86_64
 
