@@ -36,24 +36,32 @@
         <user password="$1$wYJUgpM5$RXMMeASDc035eX.NbYWFl0" home="/root" name="root" groups="root"/>
     </users>
 
-    <repository type="yast2" >
-        <source path="dir:///mounts/dist/install/SLP/SLE-12-SP3-Server-GM/x86_64/DVD1/"/>
+    <!-- x86_64 repos -->
+    <repository type="rpm-md" >
+        <source path="http://SMT_SERVER/repo/SUSE/Products/SLE-SERVER/12-SP3/x86_64/product/"/>
     </repository>
     <repository type="rpm-md" >
-        <source path="http://euklid.suse.de/mirror/SuSE/build.suse.de/SUSE/Updates/SLE-Module-Public-Cloud/12/x86_64/update/"/>
+        <source path="http://SMT_SERVER/repo/SUSE/Updates/SLE-SERVER/12-SP3/x86_64/product/"/>
     </repository>
     <repository type="rpm-md" >
-        <source path="http://euklid.suse.de/mirror/SuSE/build.suse.de/SUSE/Products/SLE-Module-Public-Cloud/12/x86_64/product/"/>
+        <source path="http://SMT_SERVER/repo/SUSE/Products/SLE-Module-Public-Cloud/12/x86_64/product/"/>
+    </repository>
+    <repository type="rpm-md" >
+        <source path="http://SMT_SERVER/repo/SUSE/Updates/SLE-Module-Public-Cloud/12/x86_64/update/"/>
     </repository>
 
-    <repository type="yast2" >
-        <source path="dir:///mounts/dist/install/SLP/SLE-12-SP3-Server-GM/aarch64/DVD1/"/>
+    <!-- aarch64 repos -->
+    <repository type="rpm-md" >
+        <source path="http://SMT_SERVER/repo/SUSE/Products/SLE-SERVER/12-SP3/aarch64/product/"/>
     </repository>
     <repository type="rpm-md" >
-        <source path="http://euklid.suse.de/mirror/SuSE/build.suse.de/SUSE/Updates/SLE-Module-Public-Cloud/12/aarch64/update/"/>
+        <source path="http://SMT_SERVER/repo/SUSE/Updates/SLE-SERVER/12-SP3/aarch64/product/"/>
     </repository>
     <repository type="rpm-md" >
-        <source path="http://euklid.suse.de/mirror/SuSE/build.suse.de/SUSE/Products/SLE-Module-Public-Cloud/12/aarch64/product/"/>
+        <source path="http://SMT_SERVER/repo/SUSE/Products/SLE-Module-Public-Cloud/12/aarch64/product/"/>
+    </repository>
+    <repository type="rpm-md" >
+        <source path="http://SMT_SERVER/repo/SUSE/Updates/SLE-Module-Public-Cloud/12/aarch64/update/"/>
     </repository>
 
     <packages type="image">
