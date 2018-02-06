@@ -28,7 +28,7 @@ As a first step, clone this git repository:
 
 Then run all commands under this directory.
 
-Patch your SMT server name or IP address in all */*.kiwi files. For example,
+Patch your SMT server name or IP address in all \*/\*.kiwi files. For example,
 if your SMT server is smt.example.com, run the following command:
 
     $ for i in */*.kiwi; do sed -i 's/SMT_SERVER/smt.example.com/g' $i; done
