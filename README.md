@@ -204,10 +204,3 @@ Try to grab the image from the server and verify it works.
 
 All of the build service pieces you used can be hosted on-site at your facility
 as well. There is nothing that binds you to the publicly hosted OBS version.
-
-> Side note: We are currently resolving [a bug] that prevents AArch64 builds
->            from completing in OBS. Hopefully this is getting resolved in
->            the next weeks, but for now you will only get an x86_64 image
->            from OBS.
-
-[a bug]: http://bugzilla.suse.com/show_bug.cgi?id=1079635
