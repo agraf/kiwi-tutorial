@@ -1,26 +1,28 @@
-# Quick kiwi tutorial
+# SLES12 SP3 AArch64/x86_64 images with KIWI - Quick Tutorial
 
 Welcome to the really quick guide on how to create images with kiwi. This will
 only teach you the basics, but will give you enough tooling so that the gaps are
 easy to fill out using google or by asking friendly people you know.
 
-Please adapt the URLs in the config.kiwi files in this directory with paths that
-point to either your SMT server or local copies of the respective SLES or module
-media.
+The main idea behind this tutorial is that after you've finished, you will be
+able to build images for both ARM and x86 systems easily. You will also be able
+to do so both locally as well as using OBS.
 
 ###  Table of contents
 
    * [Preparation](#preparation)
-   * [First step on x86_64](#first-step-on-x86_64)
-   * [First step on aarch64](#first-step-on-aarch64)
-   * [Comparing aarch64 and x86_64](#comparing-aarch64-and-x86_64)
-   * [Adding a package](#adding-a-package)
-   * [Adding a service](#adding-a-service)
-   * [Going cloudy](#going-cloudy)
-   * [Building with packages from OBS](#building-with-packages-from-obs)
-   * [Breathing clouds](#breathing-clouds)
+   * [Building locally](#building-locally)
+      * [First step on x86_64](#first-step-on-x86_64)
+      * [First step on aarch64](#first-step-on-aarch64)
+      * [Comparing aarch64 and x86_64](#comparing-aarch64-and-x86_64)
+      * [Adding a package](#adding-a-package)
+      * [Adding a service](#adding-a-service)
+   * [Building in the Open Build Service](#building-in-the-open-build-service)
+      * [First OBS steps](#first-obs-steps)
+      * [Building with packages from OBS](#building-with-packages-from-obs)
+      * [Breathing clouds](#breathing-clouds)
 
-### Preparation
+## Preparation
 
 As a first step, clone this git repository:
 
@@ -45,6 +47,8 @@ You will also need the following:
     * The KVM pattern installed
     * Package "qemu-uefi-aarch64" installed
 
+## Building locally
+
 ### First step on x86_64
 
 Go to your x86_64 SLES12 SP3 host. Clone this git repo locally. Then follow
@@ -57,8 +61,10 @@ the README in the [sles12_sp3_aarch64_jeos directory](sles12_sp3_aarch64_jeos).
 
 ### Comparing aarch64 and x86_64
 
-diff -ru both directories. What are the differences between building an image
-for x86_64 and aarch64?
+diff -ru both directories.
+
+You will see that both architectures have basically identical kiwi description
+files. Almost all of the architecture specifics are abstracted away.
 
 ### Adding a package
 
@@ -73,7 +79,21 @@ available.
 Add the package "apache2" to your image. We want to start it on bootup. To
 enable automatic execution of the new service on boot, edit config.sh.
 
-### Going cloudy
+## Building in the Open Build Service
+
+So far we have done everything locally. That means that every time things
+change, someone would need to manually recreate the image. Of course you
+could automate things slightly using external tools like Jenkins, but there
+is an open source project that makes package and image building across
+architectures quite easy: OBS - the Open Build Service.
+
+Integration of the image to the build service will allow to automate the
+build of the image as soon as a package change in the repositories occurs.
+
+Follow the next steps to copy our image into the build service and add
+package we build there.
+
+### First OBS steps
 
 Create an account on build.opensuse.org. Then run
 
