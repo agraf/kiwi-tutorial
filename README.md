@@ -185,24 +185,32 @@ Go to "Project Config". Add the following snippet:
 
 Now select "Create package" from the Overview tab and call it
 "moon_buggy_image". Save changes. Add config.kiwi, config.sh and
-cloud-cfg-swapfile.tgz from your local image source directory,
-but replace the list of repositories in config.kiwi with a simple
+cloud-cfg-swapfile.tgz from your local image source directory.
+
+> (tip: You can use the osc command line tool to add files easier than with the
+> Web UI. You will need to run a "co" on the package, copy all files in, run
+> "addremove", then "ci".)
+
+The config.kiwi file now still contains local URLs for its repositories
+which can not be used from OBS. However, OBS already knows all repositories
+we want to build against, so we can just reuse its internal logic. For that,
+replace all repository tags in config.kiwi with this single snippet:
 
     <repository type="rpm-md">
         <source path="obsrepositories:/"/>
     </repository>
 
-(tip: You can use the osc command line tool to add files easier than with the
-Web UI. You will need to run a "co" on the package, copy all files in, run
-"addremove", then "ci".)
-
-Now that all files are in, wait for the image build to finish.
+Now that all files are in OBS, wait for the image build to finish.
 
 In this setup, every change to the sources of the moon-buggy package will
 automatically spawn a build of the image once the package build is done. The
 same is true for inter-package dependencies.
 
-Try to grab the image from the server and verify it works.
+When the build is done, try to grab the image from the server and verify it
+works.
 
 All of the build service pieces you used can be hosted on-site at your facility
 as well. There is nothing that binds you to the publicly hosted OBS version.
+
+Congratulations, you can now dive into the wonderful world of image building
+with kiwi!
