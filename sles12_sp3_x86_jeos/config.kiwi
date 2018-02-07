@@ -41,7 +41,7 @@
         <source path="http://SMT_SERVER/repo/SUSE/Products/SLE-SERVER/12-SP3/x86_64/product/"/>
     </repository>
     <repository type="rpm-md" >
-        <source path="http://SMT_SERVER/repo/SUSE/Updates/SLE-SERVER/12-SP3/x86_64/product/"/>
+        <source path="http://SMT_SERVER/repo/SUSE/Updates/SLE-SERVER/12-SP3/x86_64/update/"/>
     </repository>
     <repository type="rpm-md" >
         <source path="http://SMT_SERVER/repo/SUSE/Products/SLE-Module-Public-Cloud/12/x86_64/product/"/>
@@ -55,7 +55,7 @@
         <source path="http://SMT_SERVER/repo/SUSE/Products/SLE-SERVER/12-SP3/aarch64/product/"/>
     </repository>
     <repository type="rpm-md" >
-        <source path="http://SMT_SERVER/repo/SUSE/Updates/SLE-SERVER/12-SP3/aarch64/product/"/>
+        <source path="http://SMT_SERVER/repo/SUSE/Updates/SLE-SERVER/12-SP3/aarch64/update/"/>
     </repository>
     <repository type="rpm-md" >
         <source path="http://SMT_SERVER/repo/SUSE/Products/SLE-Module-Public-Cloud/12/aarch64/product/"/>
