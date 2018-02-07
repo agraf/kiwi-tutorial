@@ -174,6 +174,7 @@ Go to "Project Config". Add the following snippet:
 
     Prefer: ksh
 
+    Substitute: kiwi-filesystem:ext4 e2fsprogs
     Prefer: !kiwi
     Prefer: !kiwi-desc-oemboot-requires
     Prefer: !kiwi-requires
@@ -183,8 +184,9 @@ Go to "Project Config". Add the following snippet:
     Preinstall: jing 
 
 Now select "Create package" from the Overview tab and call it
-"moon_buggy_image". Save changes. Add all files from the local image repository,
-but replace the list of repositories with a simple
+"moon_buggy_image". Save changes. Add config.kiwi, config.sh and
+cloud-cfg-swapfile.tgz from your local image source directory,
+but replace the list of repositories in config.kiwi with a simple
 
     <repository type="rpm-md">
         <source path="obsrepositories:/"/>
