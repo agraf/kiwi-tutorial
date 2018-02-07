@@ -152,6 +152,12 @@ add an image repository definition:
       <arch>aarch64</arch>
     </repository>
 
+Also we need to build against the "Update" repository instead of the "GA" one to
+get all package updates automatically included in the image build. Replace the
+path tag in the SLE_12_SP3 repository with:
+
+    <path project="SUSE:SLE-12-SP3:Update" repository="standard"/>
+
 Press "Save".
 
 Go to "Project Config". Add the following snippet:
